@@ -5,13 +5,15 @@ const POWER_UPS = [
   "Rapid Fire",
   "Speed Up",
   "Extra Life",
-  "Double Score (not implemented)",
+  "Double Score",
 ];
 
 export default function PowerUpModal({
   onSelect,
+  score,
 }: {
   onSelect: (power: string) => void;
+  score: number;
 }) {
   // Pick 2 random power-ups
   const choices = React.useMemo(() => {
@@ -32,21 +34,30 @@ export default function PowerUpModal({
         }}
       >
         <h2 className="text-3xl font-bold mb-4 text-white drop-shadow">
-          Choose a Power-Up
+          Choose a Vibe-Up
         </h2>
+        <div className="mb-4 text-xl font-mono text-white drop-shadow">
+          Score: <span className="font-bold">{score}</span>
+        </div>
         <div className="flex gap-8">
-          {choices.map((p) => (
-            <button
-              key={p}
-              className="px-6 py-3 rounded-lg font-bold text-xl text-white shadow-lg border-2 border-white hover:scale-110 transition"
-              style={{
-                background: synthwavePalette.accent1,
-              }}
-              onClick={() => onSelect(p)}
-            >
-              {p}
-            </button>
-          ))}
+          {choices.map((p) => {
+            let label = p;
+            if (p === "Double Score") {
+              label = `Double Score (→ ${score * 2})`;
+            }
+            return (
+              <button
+                key={p}
+                className="px-6 py-3 rounded-lg font-bold text-xl text-white shadow-lg border-2 border-white hover:scale-110 transition"
+                style={{
+                  background: synthwavePalette.accent1,
+                }}
+                onClick={() => onSelect(p)}
+              >
+                {label}
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>

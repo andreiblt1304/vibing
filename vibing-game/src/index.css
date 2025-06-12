@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Improved Synthwave text effect for readability */
+.synthwave-text {
+  font-family: 'Orbitron', 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: 0.08em;
+  background: linear-gradient(180deg, #fff 20%, #ff6ec7 60%, #a259f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow:
+    0 2px 0 #fff,
+    0 4px 12px #ff6ec7,
+    0 1px 0 #fff,
+    0 0px 8px #a259f7;
+  border-bottom: 3px solid #ff6ec7;
+  filter: none;
+}
+
+/* Synthwave UI text for in-game stats (Wave, HP, etc) */
+.synthwave-ui {
+  font-family: 'Orbitron', 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  background: linear-gradient(180deg, #ffe156 60%, #fffbe0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow:
+    0 2px 0 #fffbe0,
+    0 1px 8px #ffe156,
+    0 0px 4px #ffe156;
+  filter: none;
+}
